@@ -13,6 +13,11 @@ class Solution:
 #    Memory beats 37.21% of python submissions ... CONSISTENT
 
 
+# Explaination:
+# Sets in python do not contain duplicates
+# So, by casting the list to a set, it will remove all duplicates
+# Then, if the size decreased, there was a duplicate
+
 #Alternate solution
 class Solution(object):
     def containsDuplicate(self, nums):
