@@ -1,0 +1,25 @@
+#Initial solution
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        size = len(nums)
+        sizeTwo = len(set(nums))
+        return size != sizeTwo
+        
+# 75 / 75 test cases passed.
+# Status: Accepted
+# Runtime: 431 ms
+#    Runtime beats 43.77% of pytho submissions ... to 95.64% (Ran again)
+# Memory Usage: 27.4 MB
+#    Memory beats 37.21% of python submissions ... CONSISTENT
+
+
+#Alternate solution
+class Solution(object):
+    def containsDuplicate(self, nums):
+        set1 = set()
+
+        for num in nums:
+            if num in set1:
+                return True
+            set1.add(num)
+        return False
