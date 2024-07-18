@@ -28,3 +28,6 @@ class Solution(object):
                 return True
             set1.add(num)
         return False
+    
+# Adds the numbers to the set iteratively
+# If a number is already in the set, it returns True, because there is a duplicate
