@@ -1,4 +1,4 @@
-#Time Conversion
+//Time Conversion
 public static String timeConversion(String s) {
         String quan = s.substring(8,s.length());
         String time = s.substring(0,8);
@@ -26,3 +26,45 @@ public static String timeConversion(String s) {
         
         
     }
+
+
+// Min max sum
+def miniMaxSum(arr):
+    arr.sort()
+    lowSum = 0
+    highSum = 0
+    for idx in range(0, len(arr) - 1):
+        lowSum += arr[idx]
+    for idx in range(1, len(arr)):
+        highSum += arr[idx]
+    
+    print(lowSum, highSum)
+
+
+
+//Plus Minus
+public static void plusMinus(List<Integer> arr) {
+    Double total = 0.0;
+    Double neg = 0.0;
+    Double pos = 0.0;
+    Double zero = 0.0;
+    
+    for(int i = 0; i < arr.size(); i++) {
+        total++;
+        if(arr.get(i) < 0) {
+            neg++;
+        } else if(arr.get(i) > 0) {
+            pos++;
+        } else {
+            zero++;
+        }
+        
+        
+    }  
+    System.out.printf("%.6f\n", pos/total);
+    System.out.printf("%.6f\n", neg/total);
+    System.out.printf("%.6f\n", zero/total);
+  
+}
+
+}
