@@ -66,5 +66,3 @@ public static void plusMinus(List<Integer> arr) {
     System.out.printf("%.6f\n", zero/total);
   
 }
-
-}
