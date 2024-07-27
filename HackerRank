@@ -1,0 +1,28 @@
+#Time Conversion
+public static String timeConversion(String s) {
+        String quan = s.substring(8,s.length());
+        String time = s.substring(0,8);
+        String hour = s.substring(0,2);
+        int hourInt = Integer.valueOf(hour);
+        if(quan.equals("AM")) {
+            if(hourInt == 12) {
+                return "00" + s.substring(2,s.length() - 2);
+            }
+            else {
+                return time;
+            }
+        }
+        else {
+            if(hourInt != 12) {
+                hourInt += 12;
+                return "" + hourInt + s.substring(2,s.length() - 2);
+            }
+            else {
+                return time;
+            }
+            
+            
+        }
+        
+        
+    }
