@@ -89,3 +89,104 @@ public static List<Integer> breakingRecords(List<Integer> scores) {
 
 }
 
+//Camel Case 4
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        while(scan.hasNextLine()) {
+            String line = scan.nextLine();
+            if(line == "\n") continue;
+            String operation = line.substring(0,1);
+            String type = line.substring(2,3);
+            String rest = line.substring(4);
+            
+            //Split
+            if(operation.equals("S")) {
+                if(type.equals("M")) {
+                    System.out.println(removeCapitals(rest.substring(0, rest.length() - 2)));
+                } else if(type.equals("V")) {
+                    System.out.println(removeCapitals(rest));
+                } else if(type.equals("C")) {
+                    System.out.println(removeCapitals(rest));
+                }
+            }
+            //Combine
+            else if(operation.equals("C")) {
+                if(type.equals("M")) {
+                    System.out.println(combineMeth(rest));
+                } else if(type.equals("V")) {
+                    System.out.println(combineVar(rest));
+                } else if(type.equals("C")) {
+                    System.out.println(combineClass(rest));
+                }
+            }
+            
+        }
+        scan.close();
+    }
+    
+    public static String removeCapitals(String input) {
+
+        char[] chars = input.toCharArray();
+        String rtn = "";
+        for(int i = 0; i < chars.length; i++) {
+            
+            if(i == 0 && Character.isUpperCase(chars[i])) {
+                chars[i] = Character.toLowerCase(chars[i]);
+            }
+            else if(i > 0 && Character.isUpperCase(chars[i])) {
+                chars[i] = Character.toLowerCase(chars[i]);
+                rtn += " ";
+            }
+            rtn += (chars[i]);
+            
+        }
+        
+        return rtn;
+    }
+    
+    public static String combineVar(String input) {
+        char[] chars = input.toCharArray();
+        String rtn = "";
+        rtn += chars[0];
+        for(int i = 1; i < chars.length; i++) {
+            if(chars[i] == ' ') {
+                chars[i + 1] = Character.toUpperCase(chars[i+1]);
+                continue;
+            }
+            rtn += (chars[i]);
+        }
+        return rtn;
+    }
+    public static String combineMeth(String input) {
+        char[] chars = input.toCharArray();
+        String rtn = "";
+        rtn += chars[0];
+        for(int i = 1; i < chars.length; i++) {
+            if(chars[i] == ' ') {
+                chars[i + 1] = Character.toUpperCase(chars[i+1]);
+                continue;
+            }
+            rtn += (chars[i]);
+        }
+        rtn += "()";
+        return rtn;
+    }
+    public static String combineClass(String input) {
+        char[] chars = input.toCharArray();
+        String rtn = "";
+        rtn += Character.toUpperCase(chars[0]);
+        for(int i = 1; i < chars.length; i++) {
+            if(chars[i] == ' ') {
+                chars[i + 1] = Character.toUpperCase(chars[i+1]);
+                continue;
+            }
+            rtn += (chars[i]);
+        }
+        return rtn;
+    }
+    
+    
+    
+}
